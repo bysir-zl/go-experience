@@ -1,4 +1,4 @@
-package test
+package tree
 
 import (
 	"testing"
