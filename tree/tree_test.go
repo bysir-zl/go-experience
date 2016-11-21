@@ -2,7 +2,7 @@ package tree
 
 import (
 	"testing"
-	"log"
+	"github.com/deepzz0/go-com/log"
 )
 
 type Node struct {
@@ -54,8 +54,8 @@ type P2 struct {
 func ( p *P2)treeRoot(root *Node, route []*Node) {
 	route = append(route, root)
 	if root.Child != nil {
-		for _, v := range root.Child {
-			p.treeRoot(&v, route)
+		for i, _ := range root.Child {
+			p.treeRoot(&root.Child[i], route) //v
 		}
 	} else {
 		p.path[root.value] = route
