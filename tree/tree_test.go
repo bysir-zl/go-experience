@@ -25,11 +25,10 @@ func TestTree(t *testing.T) {
 	log.Printf("%v", p.path[1][1].value)
 
 	p2:=P2{}
-	p2.root = &root
+	p2.root = root
 	p2.path = map[int][]*Node{}
-	p2.treeRoot(p2.root,route)
+	p2.treeRoot(&p2.root,route)
 	log.Printf("%v", p2.path[1][1].value)
-
 }
 
 type P struct {
@@ -41,22 +40,6 @@ func ( p *P)treeRoot(root Node, route []*Node) {
 	if root.Child != nil {
 		for _, v := range root.Child {
 			p.treeRoot(v, route)
-		}
-	} else {
-		p.path[root.value] = route
-	}
-}
-
-
-type P2 struct {
-	path  map[int][]*Node
-	root *Node
-}
-func ( p *P2)treeRoot(root *Node, route []*Node) {
-	route = append(route, root)
-	if root.Child != nil {
-		for _, v := range root.Child {
-			p.treeRoot(&v, route)
 		}
 	} else {
 		p.path[root.value] = route
