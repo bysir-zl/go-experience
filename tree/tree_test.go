@@ -45,3 +45,19 @@ func ( p *P)treeRoot(root Node, route []*Node) {
 		p.path[root.value] = route
 	}
 }
+
+
+type P2 struct {
+	path  map[int][]*Node
+	root Node
+}
+func ( p *P2)treeRoot(root *Node, route []*Node) {
+	route = append(route, root)
+	if root.Child != nil {
+		for _, v := range root.Child {
+			p.treeRoot(&v, route)
+		}
+	} else {
+		p.path[root.value] = route
+	}
+}
