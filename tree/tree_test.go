@@ -8,7 +8,7 @@ import (
 type Node struct {
 	value int
 	Child []Node
-} 
+}
 
 func TestTree(t *testing.T) {
 	root := Node{value:0}
